@@ -6,9 +6,6 @@
 #include "Engine/GameInstance.h"
 #include "MyGameInstance.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class UMyGameInstance : public UGameInstance
 {

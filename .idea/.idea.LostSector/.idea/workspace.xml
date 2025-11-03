@@ -12,9 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3bb5ee2-f3ee-44cc-abaf-c4a8bc37b5ec" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LostSector/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LostSector/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LostSector.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/LostSector.uproject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/LostSector/LostSector.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/LostSector.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/Private/MyGameInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Private/MyGameInstance.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +168,7 @@
       <workItem from="1762133270533" duration="3762000" />
       <workItem from="1762137557726" duration="504000" />
       <workItem from="1762138084407" duration="1223000" />
+      <workItem from="1762143549873" duration="7000" />
     </task>
     <servers />
   </component>

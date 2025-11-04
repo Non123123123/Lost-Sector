@@ -10,7 +10,10 @@ public class LostSector : ModuleRules
 
 		PublicDependencyModuleNames.AddRange(new string[]
 		{
-			"Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" , "OnlineSubsystem", "OnlineSubsystemSteam"
+			"Core", "CoreUObject",
+			"Engine", "InputCore",
+			"EnhancedInput" , "OnlineSubsystem",
+			"OnlineSubsystemSteam","UMG"
 		});
 	}
 }

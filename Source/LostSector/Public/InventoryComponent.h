@@ -1,54 +1,28 @@
-﻿#pragma once
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "ItemTypes.h"
-#include "InventoryComponent.generated.h"   // ✅ 마지막 include
+#include "InventoryComponent.generated.h"
 
-class AItemPickup;                          // ✅ 전방선언은 여기(OK)
 
-UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
+UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class LOSTSECTOR_API UInventoryComponent : public UActorComponent
 {
-    GENERATED_BODY()
-public:
-    UInventoryComponent();
+	GENERATED_BODY()
 
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) int32 SlotCount = 30;
-    UPROPERTY(EditAnywhere, BlueprintReadOnly) float WeightLimit = 30.f;
-
-    // ✅ 반드시 UPROPERTY 이어야 DOREPLIFETIME 가능
-    UPROPERTY(ReplicatedUsing = OnRep_Slots, BlueprintReadOnly)
-    TArray<FItemStack> Slots;
-
-    UFUNCTION(BlueprintCallable) void  InitSlots();
-    UFUNCTION(BlueprintCallable) float GetTotalWeight() const;
-
-    UFUNCTION(BlueprintCallable) bool TryAddStack(const FItemStack& InStack, int32& OutAdded);
-    UFUNCTION(BlueprintCallable) bool TryMove(int32 FromIdx, int32 ToIdx);
-    UFUNCTION(BlueprintCallable) bool TrySplit(int32 FromIdx, int32 NumToSplit, int32 ToIdx);
-    UFUNCTION(BlueprintCallable) bool RemoveAt(int32 Index, int32 Count);
-
-    UFUNCTION(BlueprintCallable) bool TransferFrom(UInventoryComponent* From, int32 FromIdx, int32 Count, int32& OutMoved);
-    UFUNCTION(BlueprintCallable) bool TransferAllFrom(UInventoryComponent* From, int32& OutTotalMoved);
-
-    UFUNCTION(BlueprintCallable) bool DropAt(int32 FromIdx, int32 Count, const FTransform& WorldTransform, TSubclassOf<AItemPickup> PickupClass);
+public:	
+	// Sets default values for this component's properties
+	UInventoryComponent();
 
 protected:
-    virtual void BeginPlay() override;
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override; // ✅ 인자명 일치
+	// Called when the game starts
+	virtual void BeginPlay() override;
 
-    UFUNCTION() void OnRep_Slots();
+public:	
+	// Called every frame
+	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-    // 서버 RPC들
-    UFUNCTION(Server, Reliable) void Server_TryAddStack(const FItemStack& InStack);
-    UFUNCTION(Server, Reliable) void Server_TryMove(int32 FromIdx, int32 ToIdx);
-    UFUNCTION(Server, Reliable) void Server_TrySplit(int32 FromIdx, int32 NumToSplit, int32 ToIdx);
-    UFUNCTION(Server, Reliable) void Server_TransferFrom(UInventoryComponent* From, int32 FromIdx, int32 Count);
-    UFUNCTION(Server, Reliable) void Server_TransferAllFrom(UInventoryComponent* From);
-    UFUNCTION(Server, Reliable) void Server_DropAt(int32 FromIdx, int32 Count, const FTransform& Xform, TSubclassOf<AItemPickup> PickupClass);
-
-private:
-    bool CanAddWeight(float AddW) const;
-    FORCEINLINE bool ValidIndex(int32 I) const { return Slots.IsValidIndex(I); }
-    void BroadcastUpdated();
+		
 };

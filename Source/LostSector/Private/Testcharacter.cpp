@@ -1,34 +1,18 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+#include "TestCharacter.h"
 
-
-#include "Testcharacter.h"
-
-// Sets default values
-ATestcharacter::ATestcharacter()
+ATestCharacter::ATestCharacter()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
+    Inventory = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory"));
+    Interaction = CreateDefaultSubobject<UInteractionComponent>(TEXT("Interaction"));
 }
 
-// Called when the game starts or when spawned
-void ATestcharacter::BeginPlay()
+void ATestCharacter::SetupPlayerInputComponent(UInputComponent* IC)
 {
-	Super::BeginPlay();
-	
+    Super::SetupPlayerInputComponent(IC);
+    IC->BindAction("Use", IE_Pressed, this, &ATestCharacter::Use);
 }
 
-// Called every frame
-void ATestcharacter::Tick(float DeltaTime)
+void ATestCharacter::Use()
 {
-	Super::Tick(DeltaTime);
-
+    if (Interaction) Interaction->Use();
 }
-
-// Called to bind functionality to input
-void ATestcharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-}
-

@@ -1,27 +1,37 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿#include "ItemPickup.h"
+#include "InventoryComponent.h"
+#include "GameFramework/Character.h"
+#include "Net/UnrealNetwork.h"
 
+UPROPERTY(VisibleAnywhere)UStaticMeshComponent* Mesh;
 
-#include "ItemPickup.h"
-
-// Sets default values
 AItemPickup::AItemPickup()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
+    bReplicates = true;
+    Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
+    SetRootComponent(Mesh);
+    Mesh->SetCollisionProfileName(TEXT("OverlapAllDynamic"));
 }
 
-// Called when the game starts or when spawned
-void AItemPickup::BeginPlay()
+void AItemPickup::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
-	Super::BeginPlay();
-	
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+    DOREPLIFETIME(AItemPickup, Stack);
 }
-
-// Called every frame
-void AItemPickup::Tick(float DeltaTime)
+void AItemPickup::Interact(ACharacter* ByWho)
 {
-	Super::Tick(DeltaTime);
+    if (!ByWho || GetLocalRole() != ROLE_Authority || !Stack.IsValid()) return;
+    if (FVector::Dist(ByWho->GetActorLocation(), GetActorLocation()) > MaxUseDistance) return;
 
+    if (UInventoryComponent* Inv = ByWho->FindComponentByClass<UInventoryComponent>())
+    {
+        int32 Added = 0;
+        Inv->TryAddStack(Stack, Added);
+        if (Added > 0)
+        {
+            Stack.Count -= Added;
+            if (Stack.Count <= 0) Destroy();
+        }
+    }
 }
 

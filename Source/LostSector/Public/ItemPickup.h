@@ -1,26 +1,24 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-#pragma once
-
+﻿#pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "ItemTypes.h"
+#include "Interactable.h"
 #include "ItemPickup.generated.h"
 
 UCLASS()
-class LOSTSECTOR_API AItemPickup : public AActor
+class LOSTSECTOR_API AItemPickup : public AActor, public IInteractable
 {
-	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
-	AItemPickup();
+    GENERATED_BODY()
+public:
+    
+    AItemPickup();
+
+    UPROPERTY(EditAnywhere, Replicated) FItemStack Stack;
+    UPROPERTY(EditAnywhere) float MaxUseDistance = 220.f;
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
+public:
+    virtual void Interact(class ACharacter* ByWho) override;
 };

@@ -1,27 +1,38 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿#include "LootContainer.h"
+#include "GameFramework/Character.h"
+#include "Net/UnrealNetwork.h"   // ✅ 여기 포함
 
-
-#include "LootContainer.h"
-
-// Sets default values
 ALootContainer::ALootContainer()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-
+    bReplicates = true;                               // ✅ 액터 복제 켜기
+    Inventory = CreateDefaultSubobject<UInventoryComponent>(TEXT("Inventory"));
 }
 
-// Called when the game starts or when spawned
-void ALootContainer::BeginPlay()
+void ALootContainer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
-	Super::BeginPlay();
-	
+    Super::GetLifetimeReplicatedProps(OutLifetimeProps);     // ✅ 인자명 일치
+    DOREPLIFETIME(ALootContainer, bLocked);
 }
 
-// Called every frame
-void ALootContainer::Tick(float DeltaTime)
+bool ALootContainer::TryLock(AController* By)
 {
-	Super::Tick(DeltaTime);
-
+    if (bLocked) return LockedBy.IsValid() && LockedBy.Get() == By;
+    bLocked = true; LockedBy = By; return true;
+}
+void ALootContainer::Unlock(AController* By)
+{
+    if (LockedBy.IsValid() && LockedBy.Get() == By) { bLocked = false; LockedBy.Reset(); }
 }
 
+void ALootContainer::Interact(ACharacter* ByWho)
+{
+    if (!ByWho || GetLocalRole() != ROLE_Authority) return;
+    if (FVector::Dist(ByWho->GetActorLocation(), GetActorLocation()) > MaxUseDistance) return;
+
+    AController* Ctrl = ByWho->GetController(); if (!TryLock(Ctrl)) return;
+    if (UInventoryComponent* PlayerInv = ByWho->FindComponentByClass<UInventoryComponent>())
+    {
+        int32 Moved = 0; PlayerInv->TransferAllFrom(Inventory, Moved);
+    }
+    Unlock(Ctrl);
+}

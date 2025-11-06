@@ -1,34 +1,27 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "InteractionComponent.h"
+#include "GameFramework/Character.h"
+#include "Engine/World.h"
+#include "Interactable.h"
 
-// Sets default values for this component's properties
-UInteractionComponent::UInteractionComponent()
+void UInteractionComponent::BeginPlay() { Super::BeginPlay(); }
+
+void UInteractionComponent::Use()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
+    if (ACharacter* C = Cast<ACharacter>(GetOwner()))
+    {
+        FVector L; FRotator R; C->GetActorEyesViewPoint(L, R);
+        Server_Use(L, R); // 서버가 직접 트레이스
+    }
 }
 
-
-// Called when the game starts
-void UInteractionComponent::BeginPlay()
+void UInteractionComponent::Server_Use_Implementation(const FVector_NetQuantize& EyeLoc, const FRotator& EyeRot)
 {
-	Super::BeginPlay();
+    ACharacter* C = Cast<ACharacter>(GetOwner()); if (!C) return;
+    const FVector End = EyeLoc + EyeRot.Vector() * Range;
+    FHitResult Hit; FCollisionQueryParams Params(SCENE_QUERY_STAT(UseTrace), false, C);
+    GetWorld()->LineTraceSingleByChannel(Hit, EyeLoc, End, ECC_Visibility, Params);
 
-	// ...
-	
+    AActor* Target = Hit.GetActor(); if (!Target) return;
+    if (Target->GetClass()->ImplementsInterface(UInteractable::StaticClass()))
+        if (IInteractable* I = Cast<IInteractable>(Target)) I->Interact(C);
 }
-
-
-// Called every frame
-void UInteractionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
-}
-

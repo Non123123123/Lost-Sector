@@ -1,26 +1,30 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-#pragma once
-
+﻿#pragma once
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Interactable.h"
+#include "InventoryComponent.h"
 #include "LootContainer.generated.h"
 
 UCLASS()
-class LOSTSECTOR_API ALootContainer : public AActor
+class LOSTSECTOR_API ALootContainer : public AActor, public IInteractable
 {
-	GENERATED_BODY()
-	
-public:	
-	// Sets default values for this actor's properties
-	ALootContainer();
+    GENERATED_BODY()
+public:
+    UPROPERTY(VisibleAnywhere) UInventoryComponent* Inventory;
+    UPROPERTY(Replicated) bool bLocked = false;
+    UPROPERTY() TWeakObjectPtr<AController> LockedBy;
+    UPROPERTY(EditAnywhere) float MaxUseDistance = 240.f;
+
+    ALootContainer();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+    // ✅ 헤더에선 선언만
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+public:
+    virtual void Interact(class ACharacter* ByWho) override;
 
+private:
+    bool TryLock(AController* By);
+    void Unlock(AController* By);
 };

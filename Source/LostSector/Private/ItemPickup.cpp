@@ -8,6 +8,7 @@ UPROPERTY(VisibleAnywhere)UStaticMeshComponent* Mesh;
 AItemPickup::AItemPickup()
 {
     bReplicates = true;
+
     Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
     SetRootComponent(Mesh);
     Mesh->SetCollisionProfileName(TEXT("OverlapAllDynamic"));

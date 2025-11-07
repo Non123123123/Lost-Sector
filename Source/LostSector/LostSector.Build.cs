@@ -14,7 +14,7 @@ public class LostSector : ModuleRules
 			"Engine", "InputCore",
 			"EnhancedInput" , "OnlineSubsystem",
 			"OnlineSubsystemSteam","UMG"
-			,"Json", "JsonUtilities"
-		});
+			,"Json", "JsonUtilities","AIModule"
+        });
 	}
 }

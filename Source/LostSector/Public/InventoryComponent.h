@@ -33,9 +33,13 @@ public:
 
     UFUNCTION(BlueprintCallable) bool DropAt(int32 FromIdx, int32 Count, const FTransform& WorldTransform, TSubclassOf<AItemPickup> PickupClass);
 
+    // 수동 저장 (블루프린트용)
+    UFUNCTION(BlueprintCallable, Category = "Inventory|Save")
+    void ManualSave();
+
 protected:
     virtual void BeginPlay() override;
-    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override; // ✅ 인자명 일치
+    virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
     UFUNCTION() void OnRep_Slots();
 
@@ -51,4 +55,13 @@ private:
     bool CanAddWeight(float AddW) const;
     FORCEINLINE bool ValidIndex(int32 I) const { return Slots.IsValidIndex(I); }
     void BroadcastUpdated();
+
+    // 디바운싱 저장 관련
+    FTimerHandle SaveDebounceTimer;
+    
+    UPROPERTY(EditAnywhere, Category = "Inventory|Save", meta = (ClampMin = "0.5", ClampMax = "10.0"))
+    float SaveDebounceDelay = 2.0f; // 2초 후 저장
+    
+    void ScheduleSave();
+    void SaveInventoryToServer();
 };

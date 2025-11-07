@@ -13,6 +13,16 @@ class ALostSectorGameMode : public AGameModeBase
 
 public:
 	ALostSectorGameMode();
+
+protected:
+	virtual void BeginPlay() override;
+
+public:
+	// 플레이어 접속 시
+	virtual void PostLogin(APlayerController* NewPlayer) override;
+
+	// 플레이어 퇴장 시
+	virtual void Logout(AController* Exiting) override;
 };
 
 

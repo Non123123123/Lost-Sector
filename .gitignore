@@ -77,5 +77,6 @@ DerivedDataCache/*
 
 Content/**
 !Content/Team_Folder/
-!Content/Team_Folder/**
+!Content/Team_Folder/
+!Content/ThirdPerson/**
 

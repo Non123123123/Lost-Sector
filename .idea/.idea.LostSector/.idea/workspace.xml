@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c3bb5ee2-f3ee-44cc-abaf-c4a8bc37b5ec" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LostSector/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LostSector/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/LostSector/Private/Testcharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Private/Testcharacter.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +98,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/DataBeas&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Develop&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -234,6 +233,7 @@
       <workItem from="1762317875662" duration="12644000" />
       <workItem from="1762390957027" duration="1362000" />
       <workItem from="1762414802680" duration="3714000" />
+      <workItem from="1762479752172" duration="530000" />
     </task>
     <servers />
   </component>

@@ -3,13 +3,13 @@
 
 #include "MyUserWidget.h"
 #include "Components/Button.h" 
-#include "Kismet/KismetSystemLibrary.h" // QuitGame ÇÔ¼ö »ç¿ë¿ëµµ
-#include "Kismet/GameplayStatics.h" // OpenLevel ÇÔ¼ö »ç¿ë¿ëµµ
+#include "Kismet/KismetSystemLibrary.h" // QuitGame ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ëµµ
+#include "Kismet/GameplayStatics.h" // OpenLevel ï¿½Ô¼ï¿½ ï¿½ï¿½ï¿½ëµµ
 
 void UMyUserWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
-	if (Start Game)
+	if (StartGame)
 	{
 
 	}

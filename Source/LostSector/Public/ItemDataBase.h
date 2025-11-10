@@ -56,19 +56,4 @@ public:
 
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Economy", meta=(ClampMin="0", UIMin="0"))
     int32 Value = 0;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category ="Visual")
-    TSoftObjectPtr<UStaticMesh> WorldStaticMesh;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Visual")
-    TSoftObjectPtr<USkeletalMesh> WorldSkeletalMesh;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Visual")
-    FRotator WorldMeshRotation = FRotator::ZeroRotator;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Visual")
-    FVector WorldMeshOffset = FVector::ZeroVector;
-
-    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Visual", meta = (ClampMin = "0.001"))
-    float WorldMeshScale = 1.0f;
 };

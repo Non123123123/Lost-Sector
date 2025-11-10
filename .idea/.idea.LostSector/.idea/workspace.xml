@@ -13,7 +13,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c3bb5ee2-f3ee-44cc-abaf-c4a8bc37b5ec" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LostSector/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LostSector/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/LostSector/LostSector.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/LostSector.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/LostSectorGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/LostSectorGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/LostSectorGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/LostSectorGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/Private/InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Private/InventoryComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/Public/InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Public/InventoryComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/Public/ItemDataBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Public/ItemDataBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/Public/ItemTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Public/ItemTypes.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,18 +69,23 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Developer/Profiler/Private/ProfilerSession.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/LostSector.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/CharacterDataStructs.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/InteractionComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/InventoryComponent.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/InteractionComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/InventoryComponent.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/InventorySaveManager.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/LocalProfileManager.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/MyPlayerState.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/MyPlayerState.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/Testcharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/CharacterDataStructs.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/InteractionComponent.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/InventoryComponent.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/ItemDataBase.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/ItemPickup.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/LootContainer.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/Testcharacter.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/InventoryComponent.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/InventorySaveManager.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/ItemDataBase.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/ItemPickup.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/ItemTypes.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/LocalProfileManager.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/LootContainer.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/Testcharacter.h" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -110,18 +120,6 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="QodanaHighlightedReportService">
-    <option name="localRunNotPublishedPersistedInfo">
-      <LocalReportPersistedInfo>
-        <option name="path" value="C:\Users\kga\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
-        <option name="reportGuid" value="ec2069fe-7c4a-4824-b962-855be67682ec" />
-        <option name="reportName" value="LostSector/qodana/2025-11-05" />
-      </LocalReportPersistedInfo>
-    </option>
-  </component>
-  <component name="QodanaIsSelectedPersistenceService">
-    <option name="selectedOrLoading" value="true" />
-  </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="C:\Users\kga\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="ec2069fe-7c4a-4824-b962-855be67682ec" reportId="LostSector/qodana/2025-11-05" />
@@ -243,6 +241,12 @@
       <workItem from="1762230879174" duration="4183000" />
       <workItem from="1762317826518" duration="22000" />
       <workItem from="1762317875662" duration="12644000" />
+      <workItem from="1762390957027" duration="1362000" />
+      <workItem from="1762414802680" duration="3714000" />
+      <workItem from="1762479752172" duration="530000" />
+      <workItem from="1762492953300" duration="1707000" />
+      <workItem from="1762494676222" duration="4884000" />
+      <workItem from="1762499864857" duration="39000" />
     </task>
     <servers />
   </component>

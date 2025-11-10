@@ -53,4 +53,7 @@ public:
     // 🔹 아이템 설명 (선택)
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item")
     FText Description;
+
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Economy", meta=(ClampMin="0", UIMin="0"))
+    int32 Value = 0;
 };

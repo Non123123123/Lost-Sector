@@ -17,6 +17,10 @@ public:
     UPROPERTY(EditAnywhere) float MaxUseDistance = 220.f;
 
 protected:
+
+    UPROPERTY(VisibleAnywhere,BlueprintReadOnly,Category="Components")
+    TObjectPtr<class UStaticMeshComponent>Mesh;
+
     virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 public:

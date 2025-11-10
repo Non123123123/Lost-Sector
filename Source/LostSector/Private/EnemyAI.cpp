@@ -18,7 +18,7 @@ void AEnemyAI::BeginPlay()
 
     if (AIPerceptionComp)
     {
-        AIPerceptionComp->OnTargetPerceptionUpdated.AddDynamic(this, &AEnemyAI::OnTargetPerceptionUpdated);
+       // AIPerceptionComp->OnTargetPerceptionUpdated.AddDynamic(this, &AEnemyAI::OnTargetPerceptionUpdated);
     }
 
 }

@@ -1,37 +1,35 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "MyUserWidget.generated.h"
 
-/**
- * 
- */
-class UButton
+class UButton;
+
 UCLASS()
 class LOSTSECTOR_API UMyUserWidget : public UUserWidget
 {
-	GENERATED_BODY()
+    GENERATED_BODY()
+
 public:
-	virtual void NativeConstruct()override;
+    virtual void NativeConstruct() override;
+
 protected:
-	UPROPERTY(meta=(BindWidget))
-	UButton* StartGame;
-	UPROPERTY(meta=(BindWidget))
-	UButton* Options;
-	UPROPERTY(meta=(BindWidget))
-	UButton* QuitGame;
-	
-	UFUNCTION()
-	void OnStartGameClicked();
-	UFUNCTION()
-	void OnOptionClicked();
-	UFUNCTION()
-	void OnQuitGameClicked();
+    UPROPERTY(meta = (BindWidget))
+    UButton* StartGame;
 
+    UPROPERTY(meta = (BindWidget))
+    UButton* Options;
 
+    UPROPERTY(meta = (BindWidget))
+    UButton* QuitGame;
 
+    UFUNCTION()
+    void OnStartGameClicked();
 
+    UFUNCTION()
+    void OnOptionClicked();
+
+    UFUNCTION()
+    void OnQuitGameClicked();
 };

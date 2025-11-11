@@ -28,6 +28,8 @@ protected:
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "AI")
     TObjectPtr<class UBehaviorTree> BehaviorTree;
 
+    FTimerHandle LoseSightHandle;
+
     virtual void BeginPlay() override;
 protected:
     // [핵심 수정] Pawn을 소유했을 때 호출되는 함수를 오버라이드합니다.
@@ -40,4 +42,6 @@ private:
 
     // Blackboard 컴포넌트에 접근하기 위한 포인터
     TObjectPtr<UBlackboardComponent> BlackboardComp;
+
+
 };

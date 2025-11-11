@@ -12,12 +12,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3bb5ee2-f3ee-44cc-abaf-c4a8bc37b5ec" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/LostSector/Private/MyProjectServerTarget.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LostSector/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LostSector/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/LostSector.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/LostSector.Build.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/LostSector/LostSectorGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/LostSectorGameMode.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/LostSector/LostSectorGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/LostSectorGameMode.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/LostSector/Private/InventoryComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Private/InventoryComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/Private/MyGameInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Private/MyGameInstance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/Private/MyPlayerState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Private/MyPlayerState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/LostSector/Private/MyPlayerState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Private/MyPlayerState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/LostSector/Public/InventoryComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Public/InventoryComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/LostSector/Public/ItemDataBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Public/ItemDataBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/LostSector/Public/ItemTypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/LostSector/Public/ItemTypes.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +71,51 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Experimental/Mutable/Source/MutableRuntime/Private/MuR/ConvertData.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Experimental/Text3D/Source/Text3D/Private/Data.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Online/OnlineSubsystem/Source/Private/OnlineSubsystem.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/DataRegistry/Source/DataRegistry/Private/DataRegistrySource_DataTable.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/HPMotionController/Source/HPMotionController/Private/HPMotionController.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/Runtime/HPMotionController/Source/HPMotionController/Private/HPMotionController.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Plugins/VirtualProduction/Takes/Source/TakesCore/Private/TakeData.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Developer/AutomationWindow/Private/SAutomationWindow.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Developer/MaterialBaking/Private/MaterialRenderItemData.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Developer/Profiler/Private/ProfilerSession.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/AnimGraph/Private/EditModes/PoseDriverEditMode.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/ContentBrowser/Public/SAssetView.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/ContentBrowserData/Private/ContentBrowserItemData.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/ContentBrowserData/Public/ContentBrowserItem.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/ContentBrowserData/Public/ContentBrowserItemData.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/Persona/Public/PersonaSelectionProxies.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/PhysicsAssetEditor/Private/PhysicsAssetEditorHitProxies.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/PropertyEditor/Private/Presentation/PropertyTable/DataSource.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/SourceControlWindows/Private/SourceControlWindowsModule.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/UnrealEd/Private/Tools/LegacyEdModeWidgetHelpers.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/UnrealEd/Public/EditorDirectories.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/ViewportSnapping/Private/ViewportSnappingModule.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Editor/WorldPartitionEditor/Public/WorldPartition/Filter/WorldPartitionActorFilterTreeItems.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Programs/AutomationTool/AutomationTool.csproj" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Programs/AutomationTool/BuildGraph/BgScriptReader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Programs/AutomationTool/BuildGraph/BuildGraph.Automation.csproj" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Programs/Shared/EpicGames.Core/JsonLogEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Programs/Shared/EpicGames.Core/Log.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Programs/Shared/EpicGames.Horde/EpicGames.Horde.csproj" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/AIModule/Classes/EnvironmentQuery/EnvQueryDebugHelpers.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Core/Private/Stats/StatsMisc.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/CoreUObject/Private/Serialization/Formatters/JsonArchiveInputFormatter.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Classes/GameFramework/OnlineReplStructs.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Private/Elements/Object/ObjectElementData.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Private/Level.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Private/OnlineReplStructs.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Public/Elements/Object/ObjectElementData.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Engine/Public/HitProxies.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/EngineSettings/Classes/GameMapsSettings.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/EngineSettings/EngineSettings.Build.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/EngineSettings/Private/EngineSettingsModule.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/EngineSettings/Public/EngineSettings.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Json/Json.Build.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/Runtime/Json/Public/Json.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.3/Engine/Source/ThirdParty/OpenXR/jsoncpp.tps" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/LostSector.Build.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/CharacterDataStructs.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/InteractionComponent.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -75,6 +124,7 @@
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/LocalProfileManager.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/MyPlayerState.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/MyPlayerState.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/ServerDataManager.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Private/Testcharacter.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/CharacterDataStructs.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/LostSector/Public/InteractionComponent.h" root0="SKIP_HIGHLIGHTING" />
@@ -108,7 +158,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/DataBaes&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feat/Server&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -247,6 +297,9 @@
       <workItem from="1762492953300" duration="1707000" />
       <workItem from="1762494676222" duration="4884000" />
       <workItem from="1762499864857" duration="39000" />
+      <workItem from="1762823451527" duration="7393000" />
+      <workItem from="1762834957129" duration="9497000" />
+      <workItem from="1762845976377" duration="2715000" />
     </task>
     <servers />
   </component>

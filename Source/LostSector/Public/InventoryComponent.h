@@ -2,9 +2,10 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "ItemTypes.h"
+#include "CharacterDataStructs.h"
 #include "InventoryComponent.generated.h"   // ✅ 마지막 include
 
-class AItemPickup;                          // ✅ 전방선언은 여기(OK)
+class AItemPickup;
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class LOSTSECTOR_API UInventoryComponent : public UActorComponent

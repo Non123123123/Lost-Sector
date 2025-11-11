@@ -6,9 +6,9 @@
 #include "MainMenu.h"
 #include "PauseMenu.h"
 
-//�ʺ�ä��,�߼�ä��
-const static FName SESSION_NAME = TEXT("GameSession"); //ä�θ�
-const static FName SESSION_SETTINGS_KEY = TEXT("FREE");//���Ӹ��
+//ʺä,߼ä
+const static FName SESSION_NAME = TEXT("GameSession"); //äθ
+const static FName SESSION_SETTINGS_KEY = TEXT("FREE");//Ӹ
 
 UMyGameInstance::UMyGameInstance()
 {
@@ -45,40 +45,29 @@ void UMyGameInstance::LoadPauseMenu()
 
 void UMyGameInstance::Init()
 {
-	Super::Init();
+    Super::Init();
 
-	IOnlineSubsystem* OSS = IOnlineSubsystem::Get();
-	if (OSS)
-	{
-		UE_LOG(LogTemp, Warning, 
-			TEXT("OSS : %s is Avaliable."), *OSS->GetSubsystemName().ToString());
-
-		SessionInterface = OSS->GetSessionInterface();
-		if (SessionInterface.IsValid())
-		{
-			SessionInterface->OnCreateSessionCompleteDelegates.AddUObject(this,
-				&UMyGameInstance::OnCreateSessionComplate);
-
-			SessionInterface->OnDestroySessionCompleteDelegates.AddUObject(this,
-				&UMyGameInstance::OnDestroySessionComplate);
-
-			SessionInterface->OnFindSessionsCompleteDelegates.AddUObject(this,
-				&UMyGameInstance::OnFindSessionComplate);
-
-			SessionInterface->OnJoinSessionCompleteDelegates.AddUObject(this,
-				&UMyGameInstance::OnJoinSessionComplate);
-		}
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Not found subsystem."));
-	}
-
-	if (GEngine)
-	{
-		GEngine->OnNetworkFailure().AddUObject(this, &UMyGameInstance::OnNetworkFailure);
-	}
-
+    // ✅ 런타임에 Steam 서브시스템 가져오기
+    IOnlineSubsystem* OSS = IOnlineSubsystem::Get();
+    if (OSS)
+    {
+        FName SubsystemName = OSS->GetSubsystemName();
+        UE_LOG(LogTemp, Warning, TEXT("✅ OSS : %s is Available."), 
+               *SubsystemName.ToString());
+        
+        // Steam일 때만 특별한 처리
+        if (SubsystemName == TEXT("STEAM"))
+        {
+            UE_LOG(LogTemp, Log, TEXT("🎮 Steam features enabled"));
+        }
+        
+        SessionInterface = OSS->GetSessionInterface();
+        // ... 나머지 코드
+    }
+    else
+    {
+        UE_LOG(LogTemp, Warning, TEXT("⚠️ No OnlineSubsystem found"));
+    }
 }
 
 
@@ -122,7 +111,7 @@ void UMyGameInstance::CreateSession()
 		if (MainMenu)
 			MainMenu->Shutdown();
 
-		//�����
+		//
 		SessionInterface->CreateSession(0,SESSION_NAME,SessionSettings);
 	}
 }
@@ -133,7 +122,7 @@ void UMyGameInstance::RefreshServerList()
 	if (SessionSearch.IsValid())
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Finding Session"));
-		//���� 100�� �ִ� ã�ƿ´�.
+		// 100 ִ ãƿ´.
 		SessionSearch->MaxSearchResults = 100;
 		SessionSearch->QuerySettings.Set(FName(TEXT("PRESENCESEARCH")),true, EOnlineComparisonOp::Equals);
 		SessionInterface->FindSessions(0, SessionSearch.ToSharedRef());
@@ -178,9 +167,9 @@ void UMyGameInstance::OnCreateSessionComplate(FName InSessionName, bool IsSucces
 	UWorld* World = GetWorld();
 	if (!World) return;
 
-	//����(��)
-	World->ServerTravel("/Game/Maps/Lobby?listen");
-	//World->ServerTravel("/Game/ThirdPerson/Maps/ThirdPersonMap?listen");
+	// ✅ 맵 경로 수정 (실제 존재하는 맵으로)
+	// Lobby 맵이 없으면 ThirdPersonMap 사용
+	World->ServerTravel("/Game/BattleRoyaleStarterKit/Maps/BattleRoyale_Map_a/RobbyMap?listen");
 }
 
 
@@ -230,7 +219,7 @@ void UMyGameInstance::OnJoinSessionComplate(FName InSessionName, EOnJoinSessionC
 {
 	if (SessionInterface.IsValid() == false) return;
 
-	FString Address;//�ش� ���� �������ּ�
+	FString Address;//ش  ּ
 	if (!SessionInterface->GetResolvedConnectString(InSessionName, Address))
 	{
 		UE_LOG(LogTemp, Error, TEXT("Could not convert IP Address"));

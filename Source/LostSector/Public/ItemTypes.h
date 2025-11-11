@@ -21,6 +21,26 @@ struct FItemStack          // ← API 매크로 넣지 마세요
 
     int64 TotalValue()  const { return Item ? static_cast<int64>(Item->Value) * Count : 0; }
 };
+
+// ✅ 플레이어 데이터 구조체 추가
+USTRUCT(BlueprintType)
+struct FPlayerData
+{
+    GENERATED_BODY()
+    
+    UPROPERTY(BlueprintReadWrite)
+    TArray<FItemStack> StashItems;
+    
+    UPROPERTY(BlueprintReadWrite)
+    TArray<FItemStack> InventoryItems;
+    
+    UPROPERTY(BlueprintReadWrite)
+    int32 Money = 0;
+    
+    UPROPERTY(BlueprintReadWrite)
+    int32 Level = 1;
+
+};
 USTRUCT(BlueprintType)
 struct FPlayerInventorySaveData
 {

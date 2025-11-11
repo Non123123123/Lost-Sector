@@ -2,6 +2,7 @@
 
 #include "LostSectorGameMode.h"
 #include "LostSectorCharacter.h"
+#include "Private/MyPlayerState.h"
 #include "UObject/ConstructorHelpers.h"
 #include "InventorySaveManager.h"
 #include "InventoryComponent.h"
@@ -15,6 +16,7 @@ ALostSectorGameMode::ALostSectorGameMode()
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
+	PlayerStateClass = AMyPlayerState::StaticClass();
 }
 
 void ALostSectorGameMode::BeginPlay()
@@ -26,6 +28,19 @@ void ALostSectorGameMode::BeginPlay()
 	{
 		SaveManager->EnableAutoSave(300.0f);
 		UE_LOG(LogTemp, Log, TEXT("✅ Auto-save enabled (every 5 minutes)"));
+	}
+}
+
+void ALostSectorGameMode::InitGame(const FString& MapName, const FString& Options, FString& ErrorMessage)
+{
+	Super::InitGame(MapName, Options, ErrorMessage);
+	
+	UE_LOG(LogTemp, Log, TEXT("🎮 GameMode initialized on map: %s"), *MapName);
+	
+	// Dedicated Server인지 확인
+	if (GetNetMode() == NM_DedicatedServer)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("🖥️ Running as Dedicated Server"));
 	}
 }
 

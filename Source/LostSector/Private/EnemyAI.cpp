@@ -2,6 +2,7 @@
 #include "EnemyAI.h"
 #include "Perception/AISense_Sight.h" // 시야 감지 사용
 #include "Perception/AISense_Hearing.h" // 청각 감지 사용
+#include "TimerManager.h"
 
 
 AEnemyAI::AEnemyAI()
@@ -18,7 +19,7 @@ void AEnemyAI::BeginPlay()
 
     if (AIPerceptionComp)
     {
-       // AIPerceptionComp->OnTargetPerceptionUpdated.AddDynamic(this, &AEnemyAI::OnTargetPerceptionUpdated);
+       AIPerceptionComp->OnTargetPerceptionUpdated.AddDynamic(this, &AEnemyAI::OnTargetPerceptionUpdated);
     }
 
 }
@@ -47,9 +48,10 @@ void AEnemyAI::OnPossess(APawn * InPawn)
             // 1. 시야 감지 확인
             if (Stimulus.Type == GetDefault<UAISense_Sight>()->GetSenseID())
             {
+                GetWorld()->GetTimerManager().ClearTimer(LoseSightHandle);
                 // 타겟 액터와 위치 저장 (전투 상태 유도)
-                BlackboardComp->SetValueAsVector(FName("LastKnownLocation"), Actor->GetActorLocation());
                 BlackboardComp->SetValueAsObject(FName("TargetActor"), Actor);
+                BlackboardComp->ClearValue(FName("LastKnownLocation"));
             }
             // 2. 청각 감지 확인
             else if (Stimulus.Type == GetDefault<UAISense_Hearing>()->GetSenseID())
@@ -60,9 +62,23 @@ void AEnemyAI::OnPossess(APawn * InPawn)
         }
         else // 감지를 놓쳤을 때
         {
-            // TargetActor를 None으로 지워 전투 상태 종료
-            BlackboardComp->SetValueAsObject(FName("TargetActor"), nullptr);
-            // LastKnownLocation은 수색을 위해 그대로 유지
+            GetWorld()->GetTimerManager().SetTimer(
+                LoseSightHandle,
+                [this, Actor]()
+                {
+                    // 일정 시간 후 TargetActor 제거, 마지막 위치 저장
+                    if (BlackboardComp)
+                    {
+                        BlackboardComp->ClearValue(FName("TargetActor"));
+                        BlackboardComp->SetValueAsVector(
+                            FName("LastKnownLocation"),
+                            Actor->GetActorLocation()
+                        );
+                    }
+                },
+                6.0f,   // 타임리밋 지속 시간 (원하는 값으로 변경 가능)
+                false
+            );
         }
     }
 }
